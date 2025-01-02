@@ -1,5 +1,7 @@
+import { BASE_API_URL } from "../../utils/constant";
+
 export default async function Home() {
-const api = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/data`);
+const api = await fetch(`${BASE_API_URL}/api/data`);
 const data = await api.json();
 console.log(api);
 
@@ -8,6 +10,10 @@ type TObject = {
   employee: string,
   age: number,
   role: string
+}
+
+if(!BASE_API_URL) {
+  return null;
 }
 
 return (
