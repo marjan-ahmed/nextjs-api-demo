@@ -1,5 +1,5 @@
 export default async function Home() {
-const api = await fetch('http://localhost:3000/api/data');
+const api = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/data`);
 const data = await api.json();
 console.log(api);
 
@@ -19,7 +19,7 @@ return (
     {data.map((item: TObject) => {
       return (
         <div key={item.id}>
-          <div className="w-[300px] h-[200px] flex justify-center flex-col rounded-lg shadow-md bg-gray-50 dark:bg-gray-800 shadow-gray-300 p-5">
+          <div className="w-[300px] h-[200px] flex justify-center flex-col rounded-lg shadow-md bg-gray-50 dark:bg-gray-00 shadow-gray-300 p-5">
           <h1><span className="font-bold">ID:</span> {item.id}</h1>
           <p><span className="font-bold">Employee:</span> {item.employee}</p>
           <p><span className="font-bold">Age:</span> {item.age}</p>
